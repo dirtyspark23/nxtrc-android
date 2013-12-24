@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="robots_array">
+        <item>NXT</item>
+        <item>Sphero</item>
+    </string-array>
+</resources>

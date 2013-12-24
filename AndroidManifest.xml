@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.techjoynt.android.nxt"
+    android:versionCode="7"
+    android:versionName="1.1.4">
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="19"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <application
+        android:name="TechjoyntApplication"
+        android:allowBackup="false"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/ic_launcher"
+        android:theme="@style/Theme.techJOYnT">
+        <activity
+            android:name=".activity.SplashScreenActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Sherlock.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.RemoteControl"
+            android:alwaysRetainTaskState="true"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/remote_control"
+            android:launchMode="singleTask"
+            android:screenOrientation="sensor"
+            android:windowSoftInputMode="stateAlwaysHidden">
+        </activity>
+        <activity
+            android:name=".activity.dialog.ChooseNXTDevice"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="Select NXT device"
+            android:theme="@style/Theme.techJOYnT.Dialog">
+        </activity>
+        <activity
+            android:name=".prefs.Preferences"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/preferences"
+            android:launchMode="singleTop"
+            android:screenOrientation="sensor"
+            android:windowSoftInputMode="stateAlwaysHidden">
+        </activity>
+        <activity
+            android:name=".activity.AboutActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/about_us"
+            android:launchMode="singleTop"
+            android:screenOrientation="sensor"
+            android:windowSoftInputMode="stateAlwaysHidden">
+        </activity>
+        <activity
+            android:name="orbotix.robot.app.ColorPickerActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden"
+            android:screenOrientation="sensor"
+            android:theme="@android:style/Theme.Translucent"/>
+    </application>
+</manifest>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"><item
+        android:id="@+id/menuitem_buttons"
+        android:enabled="false"
+        android:icon="@drawable/ic_menu_buttons"
+        android:title="Button controls"
+        android:visible="false">
+    </item>
+    <item
+        android:id="@+id/menuitem_touchpad"
+        android:icon="@drawable/ic_menu_touchpad"
+        android:title="Touchpad controls">
+    </item>
+    <item
+        android:id="@+id/menuitem_tank"
+        android:icon="@drawable/ic_menu_tank"
+        android:title="Tank controls">
+    </item>
+    <item
+        android:id="@+id/menuitem_tank3motor"
+        android:icon="@drawable/ic_menu_tank3motor"
+        android:title="3 motor controls">
+    </item>
+    <item
+        android:id="@+id/menuitem_settings"
+        android:icon="@android:drawable/ic_menu_preferences"
+        android:title="Settings">
+    </item>
+</menu>

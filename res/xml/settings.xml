@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Basic">
+        <ListPreference
+            android:dialogIcon="@drawable/ic_action_info"
+            android:dialogTitle="@string/select_default_device_type"
+            android:entries="@array/robots_array"
+            android:entryValues="@array/robots_array"
+            android:key="KEY_PREF_DEFAULT_DEVICE_TYPE"
+            android:summary="@string/pref_default_device_type_summary"
+            android:title="@string/default_device_layout"/>
+        <CheckBoxPreference
+            android:key="PREF_SWAP_FWDREV"
+            android:title="Swap forward/reverse">
+        </CheckBoxPreference>
+        <CheckBoxPreference
+            android:key="PREF_SWAP_LEFTRIGHT"
+            android:title="Swap left/right">
+        </CheckBoxPreference>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Advanced">
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:disableDependentsState="false"
+            android:key="PREF_REG_SPEED"
+            android:title="Regulate speed">
+        </CheckBoxPreference>
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:dependency="PREF_REG_SPEED"
+            android:key="PREF_REG_SYNC"
+            android:title="Synchronize motors">
+        </CheckBoxPreference>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/about">
+        <Preference
+            android:key="KEY_PREF_ABOUT"
+            android:summary="@string/intravita_about_us_copyright"
+            android:title="@string/about_us"/>
+    </PreferenceCategory>
+</PreferenceScreen>
