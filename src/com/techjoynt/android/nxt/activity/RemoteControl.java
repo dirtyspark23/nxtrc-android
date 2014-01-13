@@ -59,6 +59,16 @@ public class RemoteControl extends SherlockFragmentActivity implements Runnable,
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		/**
+		 *  WARNING: Temporary Patch
+		 */
+		
+		/**
+		 * TODO: Create method or constructor activity that launches splash screen.
+		 */
+		startActivity(new Intent(this, SplashScreenActivity.class));
+		
 		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		setSupportProgressBarIndeterminateVisibility(true); 
 		setContentView(R.layout.activity_main);
@@ -79,7 +89,6 @@ public class RemoteControl extends SherlockFragmentActivity implements Runnable,
 	@Override
 	protected void onStart() {
 		super.onStart();
-		
 		if (mBluetoothAdapter == null) {
 			noBluetoothOnDevice().show();
 		} else if (!mBluetoothAdapter.isEnabled()) {
