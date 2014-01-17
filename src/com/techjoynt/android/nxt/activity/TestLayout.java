@@ -1,4 +1,4 @@
-package com.techjoynt.android.nxt.fragment;
+package com.techjoynt.android.nxt.activity;
 
 import orbotix.robot.base.Robot;
 import orbotix.robot.base.RobotProvider;
@@ -6,27 +6,25 @@ import orbotix.sphero.ConnectionListener;
 import orbotix.sphero.Sphero;
 import orbotix.view.connection.SpheroConnectionView;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
-import com.actionbarsherlock.app.SherlockFragment;
+import com.actionbarsherlock.app.SherlockActivity;
 import com.techjoynt.android.nxt.R;
 
-public class SpheroFragment extends SherlockFragment {
-	private Sphero mRobot;
-	
-	private SpheroConnectionView mSpheroConnectionView;
-	
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle icicle) {
-		return inflater.inflate(R.layout.man, container, false);
-	}
-	
-	@Override
-	public void onActivityCreated(Bundle icicle) {
-		super.onActivityCreated(icicle);
-        mSpheroConnectionView = (SpheroConnectionView) getView().findViewById(R.id.sphero_connection_view);
+public class TestLayout extends SherlockActivity {
+
+    private Sphero mRobot;
+
+    /** The Sphero Connection View */
+    private SpheroConnectionView mSpheroConnectionView;
+
+    /** Called when the activity is first created. */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.man);
+
+        mSpheroConnectionView = (SpheroConnectionView) findViewById(R.id.sphero_connection_view);
         mSpheroConnectionView.addConnectionListener(new ConnectionListener() {
 
             @Override
@@ -50,7 +48,7 @@ public class SpheroFragment extends SherlockFragment {
 
     /** Called when the user comes back to this app */
     @Override
-	public void onResume() {
+    protected void onResume() {
         super.onResume();
         // Refresh list of Spheros
         mSpheroConnectionView.startDiscovery();
@@ -59,7 +57,7 @@ public class SpheroFragment extends SherlockFragment {
 
     /** Called when the user presses the back or home button */
     @Override
-	public void onPause() {
+    protected void onPause() {
         super.onPause();
         // Disconnect Robot properly
         RobotProvider.getDefaultProvider().disconnectControlledRobots();

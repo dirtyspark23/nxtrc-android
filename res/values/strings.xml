@@ -8,7 +8,7 @@
     <string name="bluetooth_required">Bluetooth Required</string>
     <string name="bluetooth_required_message">Bluetooth needs to be enabled in order for this application to work properly.</string>
     <string name="cancel">Cancel</string>
-    <string name="techjoynt_about_us_copyright">\u00A9 2013 techJOYnT All Rights Reserved</string>
+    <string name="techjoynt_about_us_copyright">\u00A9 2014 techJOYnT All Rights Reserved</string>
     <string name="about_label">About App</string>
     <string name="splash_img_des">Image used for displaying a nice splash screen</string>
     <string name="about_message">create. tinker. learn.</string>
@@ -28,7 +28,7 @@
     <string name="default_device_layout">Default Device Layout</string>
     <string name="preferences">Preferences</string>
     <string name="remote_control">Remote Control</string>
-    <string name="intravita_about_us_copyright">\u00A9 2013 Intravita LLC All Rights Reserved </string>
+    <string name="intravita_about_us_copyright">\u00A9 2014 Intravita LLC All Rights Reserved </string>
     <string name="future_feature">Future Feature</string>
     <string name="future_feature_message">We are terribly sorry, this feature is not ready for the public as testing is still needed.  \n We hope you enjoy this update that enhances app stability.</string>
 </resources>

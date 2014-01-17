@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.techjoynt.android.nxt"
-    android:versionCode="7"
-    android:versionName="1.1.4">
+    android:versionCode="8"
+    android:versionName="1.1.5">
     <uses-sdk
         android:minSdkVersion="10"
         android:targetSdkVersion="19"/>
@@ -19,12 +19,13 @@
         <activity
             android:name=".activity.SplashScreenActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:label="@string/app_name"
+            android:label="@string/remote_control"
             android:noHistory="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Sherlock.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
@@ -33,12 +34,8 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/remote_control"
             android:launchMode="singleTask"
-            android:screenOrientation="sensor"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity
             android:name=".activity.dialog.ChooseNXTDevice"
@@ -51,7 +48,7 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/preferences"
             android:launchMode="singleTop"
-            android:screenOrientation="sensor"
+            android:screenOrientation="user"
             android:windowSoftInputMode="stateAlwaysHidden">
         </activity>
         <activity
@@ -59,13 +56,13 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/about_us"
             android:launchMode="singleTop"
-            android:screenOrientation="sensor"
+            android:screenOrientation="user"
             android:windowSoftInputMode="stateAlwaysHidden">
         </activity>
         <activity
             android:name="orbotix.robot.app.ColorPickerActivity"
             android:configChanges="orientation|keyboard|keyboardHidden"
-            android:screenOrientation="sensor"
+            android:screenOrientation="user"
             android:theme="@android:style/Theme.Translucent"/>
     </application>
 </manifest>

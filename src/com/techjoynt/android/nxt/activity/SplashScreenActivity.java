@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013 - DeAngelo Mannie | Intravita LLC
+ * Copyright (c) 2014 - DeAngelo Mannie | Intravita LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,6 +45,7 @@ public class SplashScreenActivity extends SherlockFragmentActivity {
 	public boolean onTouchEvent(MotionEvent event) {
 		if (event.getAction() == MotionEvent.ACTION_DOWN) {
 			startActivity(new Intent(this, RemoteControl.class));
+			finish();
 		}
 		return true;
 	}

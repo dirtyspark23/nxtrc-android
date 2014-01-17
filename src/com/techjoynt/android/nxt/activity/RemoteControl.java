@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013 - DeAngelo Mannie | Intravita LLC
+ * Copyright (c) 2014 - DeAngelo Mannie | Intravita LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -59,15 +59,6 @@ public class RemoteControl extends SherlockFragmentActivity implements Runnable,
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		/**
-		 *  WARNING: Temporary Patch
-		 */
-		
-		/**
-		 * TODO: Create method or constructor activity that launches splash screen.
-		 */
-		startActivity(new Intent(this, SplashScreenActivity.class));
 		
 		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		setSupportProgressBarIndeterminateVisibility(true); 
@@ -132,9 +123,11 @@ public class RemoteControl extends SherlockFragmentActivity implements Runnable,
 				SherlockFragment nxtFragment = new NXTFragment();
 				replaceFragment(nxtFragment);
 			} else {
-				/** TODO: Temporary Patch for Emergency Release
+				/** TODO:
 				SherlockFragment spheroFragment = new SpheroFragment();
 				replaceFragment(spheroFragment); **/
+				
+				
 				notActiveFeature().show();
 				editor.putInt(Preferences.KEY_PREF_SELECTED_DEVICE, 0).commit();
 			}
@@ -147,10 +140,12 @@ public class RemoteControl extends SherlockFragmentActivity implements Runnable,
 			SherlockFragment nxtFragment = new NXTFragment();
 			replaceFragment(nxtFragment);
 		} else if (deviceType.equals("Sphero")) {
-			/** TODO: Temporary Patch for Emergency Release
+			
+			/** TODO:
 			SherlockFragment spheroFragment = new SpheroFragment();
-			replaceFragment(spheroFragment);
-			**/
+			replaceFragment(spheroFragment); **/
+			
+			
 			notActiveFeature().show();
 			editor.putInt(Preferences.KEY_PREF_SELECTED_DEVICE, 0).commit();
 		}
