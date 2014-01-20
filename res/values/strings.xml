@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">techJOYnT Remote Controller</string>
+    <string name="app_name">techJOYnT Remote Control</string>
     <string name="select_robot_type">Select Robot Type</string>
     <string name="okay">Okay</string>
     <string name="no_bluetooth_message">We are sorry but we do not detect Bluetooth on your device. \nIf you do have Bluetooth please try enabling it manually.</string>
