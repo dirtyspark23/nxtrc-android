@@ -1,7 +1,6 @@
-NXT Remote Control for Lego Mindstorms
+techJOYnT Remote Control - Controls Lego NXT Mindstorms and Sphero Balls
 ======================================
-NXT Remote Control is an Android application designed to connect through Bluetooth with NXT Bricks to wirelessly move a robot without running a program.
-
+techJOYnT Remote Control is an Android application designed to connect through Bluetooth with NXT Bricks and Sphero balls. This app allows these two devices to be wirelessley controlled using a simple left, right, up, and, down keys.
 
 For Educational Purposes Only
 =============================
@@ -22,7 +21,8 @@ Notwithstanding the provisions of sections 106 and 106A, the fair use of a copyr
 Developed By
 ============
 
-* DeAngelo Mannie - dirtyspark23@gmail.com
+* DeAngelo Mannie - dirtyspark23@gmail.com | Main Developer
+* Grant Webster - gmanthefencer@gmail.com | Assistant Programmer
    
    
 Source Code Contributions
@@ -33,7 +33,6 @@ Official Lego Mindstorms App - https://github.com/NXT/LEGO-MINDSTORMS-MINDdroid
 JFedor Google Code - https://code.google.com/p/nxt-remote-control/
 
 ActionBarSherlock - http://www.actionbarsherlock.com
-
 
 License
 #######
