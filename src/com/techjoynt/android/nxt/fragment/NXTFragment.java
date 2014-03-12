@@ -28,6 +28,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -45,7 +48,7 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 import com.techjoynt.android.nxt.R;
-import com.techjoynt.android.nxt.activity.dialog.ChooseNXTDevice;
+import com.techjoynt.android.nxt.fragment.dialog.ChooseNXTDeviceDialogFragment;
 import com.techjoynt.android.nxt.http.NXTTalker;
 import com.techjoynt.android.nxt.prefs.Preferences;
 
@@ -226,8 +229,19 @@ public class NXTFragment extends SherlockFragment implements OnSharedPreferenceC
     }
 
 	private void findBrick() {
-		Intent intent = new Intent(getActivity(), ChooseNXTDevice.class);
-        startActivityForResult(intent, REQUEST_CONNECT_DEVICE);
+	    FragmentTransaction ft = getFragmentManager().beginTransaction();
+	    Fragment prev = getFragmentManager().findFragmentByTag("dialog");
+	    if (prev != null) {
+	        ft.remove(prev);
+	    }
+	    ft.addToBackStack(null);
+
+	    // Create and show the dialog.
+	    DialogFragment newFragment = ChooseNXTDeviceDialogFragment.newInstance();
+	    newFragment.show(ft, "dialog");
+		
+		//Intent intent = new Intent(getActivity(), ChooseNXTDevice.class);
+        //startActivityForResult(intent, REQUEST_CONNECT_DEVICE);
 	}
 	
 	private void setupUI() {
@@ -316,7 +330,7 @@ public class NXTFragment extends SherlockFragment implements OnSharedPreferenceC
         
         case REQUEST_CONNECT_DEVICE:
             if (resultCode == Activity.RESULT_OK) {
-                String address = data.getExtras().getString(ChooseNXTDevice.EXTRA_DEVICE_ADDRESS);
+                String address = data.getExtras().getString(ChooseNXTDeviceDialogFragment.EXTRA_DEVICE_ADDRESS);
                 BluetoothDevice device = mBluetoothAdapter.getRemoteDevice(address);
                 mDeviceAddress = address;
                 mNXTTalker.connect(device);

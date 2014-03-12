@@ -64,7 +64,7 @@ public class SplashScreenActivity extends SherlockFragmentActivity {
 
 			@Override
 			public void onAnimationStart(Animation animation) {
-				MediaPlayer player = MediaPlayer.create(mContext, R.raw.startdroid);
+				MediaPlayer player = MediaPlayer.create(mContext, R.raw.startdroid); // TODO: Thread Sensitive
 				player.start();
 				
 				player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {

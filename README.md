@@ -1,6 +1,10 @@
-techJOYnT Remote Control - Controls Lego NXT Mindstorms and Sphero Balls
-======================================
+techJOYnT Remote Control
+========================
 techJOYnT Remote Control is an Android application designed to connect through Bluetooth with NXT Bricks and Sphero balls. This app allows these two devices to be wirelessley controlled using a simple left, right, up, and, down keys.
+
+Current App Revision Changes
+============================
+- Fixed application manager naming scheme problem.
 
 For Educational Purposes Only
 =============================
@@ -36,8 +40,8 @@ ActionBarSherlock - http://www.actionbarsherlock.com
 
 License
 #######
-```
-Copyright 2013 techJOYnT
+
+```Copyright 2013-2014 techJOYnT | DeAngelo Mannie | Intravita LLC
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -49,4 +53,5 @@ Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
-limitations under the License.```
+limitations under the License.
+```

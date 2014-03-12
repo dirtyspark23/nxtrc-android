@@ -34,20 +34,23 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
-import com.actionbarsherlock.view.Window;
 import com.techjoynt.android.nxt.R;
 import com.techjoynt.android.nxt.TechjoyntApplication;
 import com.techjoynt.android.nxt.fragment.NXTFragment;
+import com.techjoynt.android.nxt.fragment.SpheroFragment;
 import com.techjoynt.android.nxt.fragment.dialog.DeviceSwitchFragment;
 import com.techjoynt.android.nxt.fragment.dialog.DeviceSwitchFragment.SelectedDeviceListener;
 import com.techjoynt.android.nxt.prefs.Preferences;
 import com.techjoynt.android.nxt.util.Util;
 
 public class RemoteControl extends SherlockFragmentActivity implements Runnable, SelectedDeviceListener {
+	private static final String NXT = "NXT";
+	private static final String SPHERO = "Sphero";
+	
 	private BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 	
 	private static SharedPreferences mPrefs = TechjoyntApplication.getPrefs();
-	private static SharedPreferences.Editor editor = mPrefs.edit();
+	// TODO: private static SharedPreferences.Editor editor = mPrefs.edit();
 	
 	private static int TIMEOUT_POLL_PERIOD = 15000; // 15 seconds
 	private static int TIMEOUT_PERIOD = 300000; // 5 minutes
@@ -59,9 +62,6 @@ public class RemoteControl extends SherlockFragmentActivity implements Runnable,
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-		setSupportProgressBarIndeterminateVisibility(true); 
 		setContentView(R.layout.activity_main);
 		
 		
@@ -123,31 +123,28 @@ public class RemoteControl extends SherlockFragmentActivity implements Runnable,
 				SherlockFragment nxtFragment = new NXTFragment();
 				replaceFragment(nxtFragment);
 			} else {
-				/** TODO:
 				SherlockFragment spheroFragment = new SpheroFragment();
-				replaceFragment(spheroFragment); **/
+				replaceFragment(spheroFragment);
 				
-				
+				/**
 				notActiveFeature().show();
-				editor.putInt(Preferences.KEY_PREF_SELECTED_DEVICE, 0).commit();
+				editor.putInt(Preferences.KEY_PREF_SELECTED_DEVICE, 0).commit(); **/
 			}
 		}
 	}
 	
 	@Override
 	public void onDeviceSelectedChanged(String deviceType) {
-		if (deviceType.equals("NXT")) {
+		if (deviceType.equals(NXT)) {
 			SherlockFragment nxtFragment = new NXTFragment();
 			replaceFragment(nxtFragment);
-		} else if (deviceType.equals("Sphero")) {
-			
-			/** TODO:
+		} else if (deviceType.equals(SPHERO)) {
 			SherlockFragment spheroFragment = new SpheroFragment();
-			replaceFragment(spheroFragment); **/
+			replaceFragment(spheroFragment);
 			
-			
+			/**
 			notActiveFeature().show();
-			editor.putInt(Preferences.KEY_PREF_SELECTED_DEVICE, 0).commit();
+			editor.putInt(Preferences.KEY_PREF_SELECTED_DEVICE, 0).commit(); **/
 		}
 	}
 	
@@ -227,7 +224,7 @@ public class RemoteControl extends SherlockFragmentActivity implements Runnable,
 		
 		return builder.create();
 	}
-	
+	/** TODO:
 	private AlertDialog notActiveFeature() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		
@@ -243,5 +240,5 @@ public class RemoteControl extends SherlockFragmentActivity implements Runnable,
 		});
 		
 		return builder.create();
-	}
+	} **/
 }
