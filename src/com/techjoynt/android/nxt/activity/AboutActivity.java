@@ -23,18 +23,18 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.MenuItem;
 import com.bugsnag.android.Bugsnag;
 import com.techjoynt.android.nxt.R;
 import com.techjoynt.android.nxt.prefs.Preferences;
 
-public class AboutActivity extends SherlockActivity {
+public class AboutActivity extends ActionBarActivity {
 	private TextView mVersion;
 	private PackageInfo info;
 	

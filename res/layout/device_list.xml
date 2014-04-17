@@ -41,14 +41,6 @@
         android:text="@string/no_devices"
         android:textSize="18sp">
     </TextView>
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:visibility="gone">
-    </ProgressBar>
     <Button
         android:id="@+id/button_scan"
         android:layout_width="match_parent"

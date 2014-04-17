@@ -7,15 +7,15 @@ import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceActivity;
 import android.support.v4.app.NavUtils;
+import android.view.MenuItem;
 
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
-import com.actionbarsherlock.view.MenuItem;
 import com.techjoynt.android.nxt.R;
 import com.techjoynt.android.nxt.activity.RemoteControl;
 import com.techjoynt.android.nxt.util.ActivityHelper;
 
-public class Preferences extends SherlockPreferenceActivity {
+public class Preferences extends PreferenceActivity {
 	public static final String KEY_PREF_SELECTED_DEVICE = "KEY_PREF_SELECTED_DEVICE";
 	public static final String KEY_PREF_DEFAULT_DEVICE_TYPE = "KEY_PREF_DEFAULT_DEVICE_TYPE";
 	public static final String KEY_PREF_ABOUT = "KEY_PREF_ABOUT";
@@ -30,7 +30,7 @@ public class Preferences extends SherlockPreferenceActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.settings);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
         mContext = this;
         CheckBoxPreference cb_speed = (CheckBoxPreference) findPreference("PREF_REG_SPEED");
         cb_sync = (CheckBoxPreference) findPreference("PREF_REG_SYNC");

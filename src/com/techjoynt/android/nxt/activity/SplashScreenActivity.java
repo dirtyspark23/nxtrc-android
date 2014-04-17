@@ -16,6 +16,7 @@
 
 package com.techjoynt.android.nxt.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -26,10 +27,9 @@ import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.techjoynt.android.nxt.R;
 
-public class SplashScreenActivity extends SherlockFragmentActivity {
+public class SplashScreenActivity extends Activity {
 	private Context mContext;
 	
 	@Override
@@ -64,7 +64,7 @@ public class SplashScreenActivity extends SherlockFragmentActivity {
 
 			@Override
 			public void onAnimationStart(Animation animation) {
-				MediaPlayer player = MediaPlayer.create(mContext, R.raw.startdroid); // TODO: Thread Sensitive
+				MediaPlayer player = MediaPlayer.create(mContext, R.raw.startdroid);
 				player.start();
 				
 				player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {

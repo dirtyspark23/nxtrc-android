@@ -34,7 +34,6 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.os.Handler;
-import android.util.Log;
 
 import com.techjoynt.android.nxt.fragment.NXTFragment;
 
@@ -73,7 +72,7 @@ public class NXTTalker {
     }
 
     public synchronized void connect(BluetoothDevice device) {
-        Log.i("NXT", "NXTTalker.connect()");
+        //Log.i("NXT", "NXTTalker.connect()");
         
         if (mState == STATE_CONNECTING) {
             if (mConnectThread != null) {

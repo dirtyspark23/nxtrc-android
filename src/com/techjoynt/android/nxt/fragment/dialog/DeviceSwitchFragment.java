@@ -22,13 +22,13 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 
-import com.actionbarsherlock.app.SherlockDialogFragment;
 import com.techjoynt.android.nxt.R;
 import com.techjoynt.android.nxt.TechjoyntApplication;
 import com.techjoynt.android.nxt.prefs.Preferences;
 
-public class DeviceSwitchFragment extends SherlockDialogFragment {
+public class DeviceSwitchFragment extends DialogFragment {
 	private SelectedDeviceListener mListener;
 	
 	private static SharedPreferences mPrefs = TechjoyntApplication.getPrefs();

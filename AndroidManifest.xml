@@ -23,7 +23,7 @@
             android:label="@string/remote_control"
             android:noHistory="true"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Sherlock.Light.NoActionBar">
+            android:theme="@android:style/Theme.Light.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

@@ -33,7 +33,7 @@ public class TechjoyntApplication extends Application {
 	public void onCreate() {
 		super.onCreate();
 		Bugsnag.register(getApplicationContext(), BUGSNAG_ID);
-		//Bugsnag.setReleaseStage("development"); // TODO: Set Back to Development
+		Bugsnag.setReleaseStage("production");
 		mApplicationContext = getApplicationContext();
 		mPrefs = PreferenceManager.getDefaultSharedPreferences(mApplicationContext);
 	}
