@@ -58,10 +58,16 @@ public class RemoteControl extends ActionBarActivity implements Runnable, Select
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 		supportRequestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-		setSupportProgressBarIndeterminateVisibility(true); 
+		
 		setContentView(R.layout.activity_main);
 		
+		/**
+		 * Set Content View First Always TODO: WTF?
+		 */
+		
+		setSupportProgressBarIndeterminateVisibility(true); 
 		
 		content = findViewById(android.R.id.content);
 		content.setKeepScreenOn(true);
