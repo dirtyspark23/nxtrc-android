@@ -26,7 +26,7 @@ import android.support.v4.app.DialogFragment;
 
 import com.techjoynt.android.nxt.R;
 import com.techjoynt.android.nxt.TechjoyntApplication;
-import com.techjoynt.android.nxt.prefs.Preferences;
+import com.techjoynt.android.nxt.prefs.PrefFragment;
 
 public class DeviceSwitchFragment extends DialogFragment {
 	private SelectedDeviceListener mListener;
@@ -56,12 +56,12 @@ public class DeviceSwitchFragment extends DialogFragment {
 		
 		builder.setTitle(R.string.choose_device_type);
 		builder.setIcon(R.drawable.ic_action_info);
-		builder.setSingleChoiceItems(R.array.robots_array, mPrefs.getInt(Preferences.KEY_PREF_SELECTED_DEVICE, -1), new DialogInterface.OnClickListener() {	
+		builder.setSingleChoiceItems(R.array.robots_array, mPrefs.getInt(PrefFragment.KEY_PREF_SELECTED_DEVICE, -1), new DialogInterface.OnClickListener() {	
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				String robotNames[] = getResources().getStringArray(R.array.robots_array); 
 				selectedDeviceType = robotNames[which].toString();
-				editor.putInt(Preferences.KEY_PREF_SELECTED_DEVICE, which).commit();
+				editor.putInt(PrefFragment.KEY_PREF_SELECTED_DEVICE, which).commit();
 				mListener.onDeviceSelectedChanged(selectedDeviceType);
 				getDialog().dismiss();
 			}

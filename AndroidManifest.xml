@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.techjoynt.android.nxt"
-    android:versionCode="14"
-    android:versionName="1.1.9.2">
+    android:versionCode="15"
+    android:versionName="1.2">
     <uses-sdk
         android:minSdkVersion="11"
         android:targetSdkVersion="19"/>
@@ -31,18 +31,11 @@
         </activity>
         <activity
             android:name=".activity.RemoteControl"
-            android:alwaysRetainTaskState="true"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/remote_control"
-            android:launchMode="singleTask"
+            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden">
-        </activity>
-        <activity
-            android:name=".activity.dialog.ChooseNXTDevice"
-            android:configChanges="keyboardHidden|orientation"
-            android:label="Select NXT device"
-            android:theme="@style/Theme.techJOYnT.Dialog">
         </activity>
         <activity
             android:name=".prefs.Preferences"
@@ -60,10 +53,5 @@
             android:screenOrientation="user"
             android:windowSoftInputMode="stateAlwaysHidden">
         </activity>
-        <activity
-            android:name="orbotix.robot.app.ColorPickerActivity"
-            android:configChanges="orientation|keyboard|keyboardHidden"
-            android:screenOrientation="user"
-            android:theme="@android:style/Theme.Translucent"/>
     </application>
 </manifest>

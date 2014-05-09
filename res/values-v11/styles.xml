@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="Theme.techJOYnT.Dialog" parent="android:Theme.Holo.Light.Dialog">
-        <item name="android:windowNoTitle">false</item>
-        <item name="android:windowCloseOnTouchOutside">true</item>
-    </style>
-</resources>

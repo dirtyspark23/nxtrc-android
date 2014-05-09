@@ -37,16 +37,18 @@ import android.view.Window;
 import com.techjoynt.android.nxt.R;
 import com.techjoynt.android.nxt.TechjoyntApplication;
 import com.techjoynt.android.nxt.fragment.NXTFragment;
+import com.techjoynt.android.nxt.fragment.SpheroFragment;
 import com.techjoynt.android.nxt.fragment.dialog.DeviceSwitchFragment;
 import com.techjoynt.android.nxt.fragment.dialog.DeviceSwitchFragment.SelectedDeviceListener;
+import com.techjoynt.android.nxt.fragment.dialog.NXTSelectionFragment.OnNXTSelectedListener;
+import com.techjoynt.android.nxt.prefs.PrefFragment;
 import com.techjoynt.android.nxt.prefs.Preferences;
 import com.techjoynt.android.nxt.util.Util;
 
-public class RemoteControl extends ActionBarActivity implements Runnable, SelectedDeviceListener {
+public class RemoteControl extends ActionBarActivity implements Runnable, SelectedDeviceListener, OnNXTSelectedListener {
 	private BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 	
 	private static SharedPreferences mPrefs = TechjoyntApplication.getPrefs();
-	private static SharedPreferences.Editor editor = mPrefs.edit();
 	
 	private static int TIMEOUT_POLL_PERIOD = 15000; // 15 seconds
 	private static int TIMEOUT_PERIOD = 300000; // 5 minutes
@@ -62,10 +64,6 @@ public class RemoteControl extends ActionBarActivity implements Runnable, Select
 		supportRequestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		
 		setContentView(R.layout.activity_main);
-		
-		/**
-		 * Set Content View First Always TODO: WTF?
-		 */
 		
 		setSupportProgressBarIndeterminateVisibility(true); 
 		
@@ -110,7 +108,7 @@ public class RemoteControl extends ActionBarActivity implements Runnable, Select
         		
         	} else if (resultCode == Activity.RESULT_CANCELED) {
         		bluetoothNotTurnedOn().show();
-        	}
+        	}   	
         }
 	}
 	
@@ -119,21 +117,25 @@ public class RemoteControl extends ActionBarActivity implements Runnable, Select
 		fragment.show(getSupportFragmentManager(), "device_switch");
 	}
 	
+	@Override
+	public void onNXTSelected(String address) {
+		NXTFragment fragment = new NXTFragment();
+		Bundle args = new Bundle();
+		args.putString("device_address", address);
+		fragment.setArguments(args);
+		replaceFragment(fragment);
+	}
+	
 	private void checkForDefault() {
 		if (!Util.isDefaultSelected()) {
 			selectDevice();
 		} else {
-			if (mPrefs.getString(Preferences.KEY_PREF_DEFAULT_DEVICE_TYPE, "").equals("NXT")) {
+			if (mPrefs.getString(PrefFragment.KEY_PREF_DEFAULT_DEVICE_TYPE, "").equals("NXT")) {
 				Fragment nxtFragment = new NXTFragment();
 				replaceFragment(nxtFragment);
 			} else {
-				/** TODO:
-				SherlockFragment spheroFragment = new SpheroFragment();
-				replaceFragment(spheroFragment); **/
-				
-				
-				notActiveFeature().show();
-				editor.putInt(Preferences.KEY_PREF_SELECTED_DEVICE, 0).commit();
+				Fragment spheroFragment = new SpheroFragment();
+				replaceFragment(spheroFragment); 
 			}
 		}
 	}
@@ -144,14 +146,8 @@ public class RemoteControl extends ActionBarActivity implements Runnable, Select
 			Fragment nxtFragment = new NXTFragment();
 			replaceFragment(nxtFragment);
 		} else if (deviceType.equals("Sphero")) {
-			
-			/** TODO:
-			SherlockFragment spheroFragment = new SpheroFragment();
-			replaceFragment(spheroFragment); **/
-			
-			
-			notActiveFeature().show();
-			editor.putInt(Preferences.KEY_PREF_SELECTED_DEVICE, 0).commit();
+			Fragment spheroFragment = new SpheroFragment();
+			replaceFragment(spheroFragment);
 		}
 	}
 	
@@ -226,23 +222,6 @@ public class RemoteControl extends ActionBarActivity implements Runnable, Select
 			public void onClick(DialogInterface dialog, int which) {
 				dialog.dismiss();
 				finish();
-			}
-		});
-		
-		return builder.create();
-	}
-	
-	private AlertDialog notActiveFeature() {
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		
-		builder.setTitle(R.string.future_feature);
-		builder.setIcon(R.drawable.ic_action_emo_wink);
-		builder.setMessage(R.string.future_feature_message);
-		
-		builder.setPositiveButton(R.string.okay, new DialogInterface.OnClickListener() {
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				dialog.dismiss();
 			}
 		});
 		
